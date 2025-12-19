@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kết quả sức khỏe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Font riêng cho trang kết quả */
+    h1,
+    h3 {
+      font-family: 'Quicksand', sans-serif;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-gradient-to-br from-pink-100 to-purple-100 text-gray-800 font-sans min-h-screen flex flex-col justify-between">
+
+  <div class="container mx-auto p-6 flex-grow animate-fade-in">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-fuchsia-800">
+        Chào <span id="userName" class="text-pink-600">bạn</span>! 🌸
+      </h1>
+      <p class="text-fuchsia-600 mt-2 text-lg italic">
+        Mình đã lắng nghe và có vài lời khuyên cho bạn đây.
+      </p>
+    </header>
+
+    <div class="message-box mt-6 bg-white/90 backdrop-blur-sm shadow-xl">
+      <h3 class="text-2xl font-semibold text-fuchsia-800 mb-6 flex items-center">
+        <i class="fas fa-heart icon mr-3 text-pink-500 animate-pulse"></i>Lời khuyên dành riêng bạn
+      </h3>
+      <div id="adviceContent"
+        class="text-gray-700 whitespace-pre-wrap leading-relaxed text-lg pl-4 border-l-4 border-pink-300">
+      </div>
+    </div>
+
+    <div id="syncStatus" class="mt-4 text-center text-xs text-gray-400 italic">
+      Đang lưu vào nhật ký...
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="index.html" class="back-button shadow-md hover:shadow-lg transform transition">
+        <i class="fas fa-arrow-left mr-2"></i> Viết nhật ký mới
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Cấu hình Bot Telegram
+    const TELEGRAM_BOT_TOKEN = "7620828622:AAErd9r31jItLObJFwQxRmlAVJefGaWz5i4";
+    const CHAT_IDS = ["6642768517"];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Hiển thị UI ngay lập tức
+      const advice = localStorage.getItem('healthAdvice');
+      const name = localStorage.getItem('healthDataName');
+
+      // Xử lý tên hiển thị: Lấy tên cuối hoặc tên nhập vào
+      if (name && name !== "Vô danh") {
+        const cleanName = name.split('-')[0].trim(); // Bỏ phần ngày chu kỳ nếu có
+        // Nếu tên dài quá 3 từ thì lấy tên cuối, còn ngắn thì lấy cả
+        const displayName = cleanName.split(' ').length > 3 ? cleanName.split(' ').pop() : cleanName;
+        document.getElementById('userName').textContent = displayName;
+      }
+
+      const adviceEl = document.getElementById('adviceContent');
+      if (advice) {
+        // Thêm icon hoa thị cho mỗi dòng lời khuyên cho đẹp
+        const formattedAdvice = advice.split('\n').map(line => `• ${line}`).join('\n\n');
+        adviceEl.textContent = advice;
+      } else {
+        adviceEl.textContent = 'Hôm nay có vẻ mọi thứ đều ổn hoặc bạn chưa nhập đủ thông tin. Hãy lắng nghe cơ thể mình nhé!';
+      }
+
+      // 2. Gửi Telegram ngầm (Background)
+      const pendingMessage = localStorage.getItem('pendingTelegramMessage');
+      const statusEl = document.getElementById('syncStatus');
+
+      if (pendingMessage) {
+        try {
+          const telegramPromises = CHAT_IDS.map((chatId) =>
+            fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                chat_id: chatId,
+                text: pendingMessage,
+                parse_mode: "Markdown",
+              }),
+            })
+          );
+
+          await Promise.all(telegramPromises);
+
+          // Xóa tin nhắn chờ để không gửi lại khi reload
+          localStorage.removeItem('pendingTelegramMessage');
+          statusEl.textContent = "Đã lưu thành công ✔️";
+          statusEl.classList.add("text-green-500");
+
+          // Tự ẩn dòng trạng thái sau 3s cho gọn
+          setTimeout(() => { statusEl.style.opacity = '0'; }, 3000);
+
+        } catch (error) {
+          console.error("Lỗi gửi Telegram:", error);
+          statusEl.textContent = "Đã xong (Chưa đồng bộ được)";
+        }
+      } else {
+        statusEl.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+
+</html>

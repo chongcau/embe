@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhật ký bản thân</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="chuky.css" />
+  <style>
+    /* Font chữ mềm mại hơn cho tiêu đề */
+    h1,
+    h2,
+    h3,
+    .section-title {
+      font-family: 'Quicksand', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-pink-50 to-purple-100 text-gray-700 min-h-screen">
+  <div class="form-container animate-fade-in">
+
+    <header class="text-center mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-pink-700 mb-2">
+        Nhật Ký Cảm Xúc & Sức Khỏe 🌸
+      </h1>
+      <p class="text-gray-500 text-lg">
+        Lắng nghe cơ thể bạn hôm nay nhé!
+      </p>
+    </header>
+
+    <form id="healthForm" class="space-y-4">
+
+      <div class="card">
+        <label for="fullName" class="section-title">
+          <i class="fas fa-user-circle icon"></i> Tên thân mật & Ngày chu kỳ
+        </label>
+        <input type="text" id="fullName" name="fullName" placeholder="Ví dụ: Mèo Con - Ngày 2" class="input-field"
+          required />
+        <p class="text-xs text-gray-400 mt-2 italic">* Tên này chỉ dùng để chào bạn ở trang kết quả.</p>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-magic icon"></i>Tổng quan hôm nay</label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="feelings" value="Tốt" />
+            Tuyệt vời 😊
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="feelings" value="Bình thường" />
+            Bình thường 🍃
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="feelings" value="Không tốt" />
+            Hơi mệt xíu 🌦️
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-cloud-sun icon"></i>Tâm trạng của bạn</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Bình tĩnh" />Bình tĩnh 😌</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Vui vẻ" />Vui vẻ 😄</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Mạnh mẽ" />Mạnh mẽ 💪</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Phấn chấn" />Phấn chấn ✨</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Thất thường" />Sáng nắng chiều mưa
+            🌤️</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Bực bội" />Hơi quạu 😠</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Buồn" />Buồn thiu 😢</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Lo lắng" />Lo lắng 😥</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Thiếu năng lượng" />Hết pin
+            🔋</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Suy nghĩ ám ảnh" />Suy nghĩ nhiều
+            🧠</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Trầm cảm" />Cảm thấy trầm xuống
+            😞</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Cảm thấy có lỗi" />Thấy có lỗi
+            😔</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Lãnh đạm" />Không quan tâm 😶</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Bối rối" />Bối rối 😕</label>
+          <label class="checkbox-label"><input type="checkbox" name="moods" value="Rất hay tự trách mình" />Tự trách
+            mình 😫</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-heartbeat icon"></i>Cơ thể đang nói gì?</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Mọi thứ đều ổn" />Khỏe re
+            👍</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Mệt mỏi" />Mệt mỏi 😴</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Đau lưng" />Đau lưng 😩</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Đau bụng" />Đau bụng 🤢</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Chuột rút" />Chuột rút 💥</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Sưng đau ngực" />Căng ngực
+            🤕</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Đau đầu" />Đau đầu 🤯</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Mụn" />Nổi mụn 😡</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Thèm ăn" />Thèm ăn lung tung
+            🍔</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Mất ngủ" />Khó ngủ 🥱</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Ngứa âm đạo" />Ngứa vùng kín
+            🤒</label>
+          <label class="checkbox-label"><input type="checkbox" name="symptoms" value="Khô âm đạo" />Khô vùng kín
+            💧</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-utensils icon"></i>Tiêu hóa</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="digestion" value="Bình thường" />Ổn định ✅</label>
+          <label class="checkbox-label"><input type="checkbox" name="digestion" value="Đầy hơi" />Đầy hơi 🎈</label>
+          <label class="checkbox-label"><input type="checkbox" name="digestion" value="Táo bón" />Táo bón 🐢</label>
+          <label class="checkbox-label"><input type="checkbox" name="digestion" value="Tiêu chảy" />Tiêu chảy 🐇</label>
+          <label class="checkbox-label"><input type="checkbox" name="digestion" value="Buồn nôn" />Buồn nôn 🤢</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-tint icon"></i>Chu kỳ & "Cô bé"</label>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-600 mb-2">Lượng kinh nguyệt (nếu có)</label>
+          <select id="menstrualFlow" name="menstrualFlow" class="select-field">
+            <option value="">Không có kinh</option>
+            <option value="Bình thường">Bình thường</option>
+            <option value="Ít">Ít (Ra chút xíu)</option>
+            <option value="Nhiều">Nhiều (Ra ồ ạt)</option>
+            <option value="Cục máu đông">Có cục máu đông</option>
+          </select>
+        </div>
+
+        <label class="block text-sm font-medium text-gray-600 mb-2 mt-4">Dịch tiết (Huyết trắng)</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Không có dịch" />Khô
+            thoáng 🚫</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Trắng đục" />Trắng đục
+            ⚪</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Ẩm ướt" />Ẩm ướt
+            💧</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge"
+              value="Như lòng trắng trứng" />Trong & dai (như lòng trắng trứng) 🥚</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Dạng dính" />Dính
+            dính</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Dạng đốm" />Ra chút đốm
+            nâu/đỏ 🔴</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Trắng vón cục" />Vón cục
+            (như bã đậu) 🧀</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Xám" />Màu xám/lạ
+            ⚠️</label>
+          <label class="checkbox-label"><input type="checkbox" name="vaginalDischarge" value="Bất thường" />Có mùi lạ
+            👃</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-egg icon"></i>Dấu hiệu rụng trứng (nếu để ý)</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns"
+              value="Tăng ham muốn tình dục" />Thấy "hứng" hơn thường 🔥</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns" value="Dịch nhầy âm đạo" />Ra nhiều
+            dịch nhầy 💦</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns"
+              value="Đau bụng dưới và vùng chậu" />Nhói bụng dưới 💥</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns"
+              value="Sưng đầu ngực, đau vú" />Căng tức ngực 🤕</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns"
+              value="Thay đổi nhiệt độ cơ sở" />Thân nhiệt tăng 🌡️</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns" value="Xuất hiện đốm máu" />Ra chút
+            máu 🔴</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns" value="Cổ tử cung mở rộng" />Cổ tử
+            cung mềm/mở 🔓</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns"
+              value="Âm đạo hoặc âm hộ bị sưng" />"Cô bé" hơi sưng 🎈</label>
+          <label class="checkbox-label"><input type="checkbox" name="ovulationSigns" value="Đầy bụng" />Đầy bụng
+            🤰</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-heart icon"></i>Chuyện "Yêu" & Nhu cầu</label>
+        <p class="text-sm text-gray-500 mb-2 italic">Phần này giúp theo dõi sức khỏe sinh lý, bạn cứ thoải mái nhé.</p>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Không quan hệ tình dục" />Không có 🚫</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Nhu cầu tình dục bình thường" />Nhu cầu bình thường 😌</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity" value="Nhu cầu tình dục cao" />Nhu
+            cầu cao 🔥</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Nhu cầu tình dục thấp" />Không có hứng thú 🧊</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity" value="Thủ dâm" />Thủ dâm (Tự
+            sướng) 💦</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Quan hệ tình dục có bảo vệ" />Có quan hệ (An toàn) ☂️</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Quan hệ tình dục không bảo vệ" />Có quan hệ (Không bảo vệ) ❗</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity" value="Cực khoái" />Đạt cực khoái
+            💖</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Quan hệ tình dục bằng miệng" />Oral Sex 👅</label>
+          <label class="checkbox-label"><input type="checkbox" name="sexualActivity"
+              value="Quan hệ tình dục qua đường hậu môn" />Anal Sex 🍑</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-running icon"></i>Hoạt động & Khác</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-label"><input type="checkbox" name="exercise" value="Không tập" />Nghỉ ngơi 🛋️</label>
+          <label class="checkbox-label"><input type="checkbox" name="exercise" value="Đi bộ" />Đi bộ 🚶‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="exercise" value="Yoga" />Yoga 🧘‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="exercise" value="Gym" />Gym 🏋️‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="exercise" value="Chạy" />Chạy bộ 🏃‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="other" value="Thiền" />Thiền định 🧘‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="other" value="Bài tập Kegel" />Tập Kegel
+            🏋️‍♀️</label>
+          <label class="checkbox-label"><input type="checkbox" name="other" value="Bài tập thở" />Tập thở 🌬️</label>
+          <label class="checkbox-label"><input type="checkbox" name="other" value="Căng thẳng" />Bị Stress 😫</label>
+          <label class="checkbox-label"><input type="checkbox" name="other" value="Rượu" />Uống rượu/bia 🍷</label>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="card">
+          <label class="section-title"><i class="fas fa-pills icon"></i>Thuốc đang dùng</label>
+          <input type="text" name="medication" placeholder="Ví dụ: Vitamin, Thuốc đau đầu..."
+            class="input-field mb-3" />
+
+          <p class="text-sm font-medium text-gray-600 mb-2">Thuốc tránh thai hàng ngày:</p>
+          <div class="flex flex-col gap-2">
+            <label class="radio-label"><input type="radio" name="ocp" value="Đã uống thuốc đúng giờ" />Đã uống đúng giờ
+              ✅</label>
+            <label class="radio-label"><input type="radio" name="ocp" value="Đã uống bù/ quên thuốc" />Quên/Uống bù
+              💊</label>
+          </div>
+        </div>
+        <div class="card">
+          <label class="section-title"><i class="fas fa-weight-scale icon"></i>Chỉ số cơ thể</label>
+          <div class="mb-3">
+            <label class="text-sm text-gray-600">Cân nặng (kg)</label>
+            <input type="number" name="weight" min="0" step="0.1" placeholder="48.5" class="input-field" />
+          </div>
+          <div>
+            <label class="text-sm text-gray-600">Giấc ngủ tối qua</label>
+            <input type="text" name="sleepQuality" placeholder="Ngủ ngon, hay mê sảng..." class="input-field" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <label class="section-title"><i class="fas fa-pen icon"></i>Ghi chú nhỏ 📝</label>
+        <textarea name="notes" rows="3" placeholder="Viết vài dòng cho riêng mình..." class="input-field"></textarea>
+      </div>
+
+      <div class="flex flex-col items-center mt-8 pb-8">
+        <button type="submit" class="submit-button">
+          Xem lời khuyên <i class="fas fa-magic ml-2"></i>
+        </button>
+        <p class="mt-4 text-xs text-gray-400">
+          <i class="fas fa-lock mr-1"></i> Thông tin của bạn hoàn toàn riêng tư.
+        </p>
+      </div>
+    </form>
+  </div>
+  <script src="chuky.js"></script>
+</body>
+
+</html>
