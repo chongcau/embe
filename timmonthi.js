@@ -1,4 +1,5 @@
-const EXAM_FILE_URL = 'https://raw.githubusercontent.com/nhattan28/lich_thi_DTU/main/LICH_THI_KTHP.xlsx';
+//const EXAM_FILE_URL = 'https://raw.githubusercontent.com/nhattan28/lich_thi_DTU/main/LICH_THI_KTHP.xlsx';
+const EXAM_FILE_URL = 'https://raw.githubusercontent.com/adminweba/crack/main/LỊCH THI KTHP.xlsx';
 
 let EXAM_DATA = [];
 let HEADERS = [];
@@ -444,3 +445,4 @@ function displayResults(data, notFoundTerms = new Set(), searchTerms = []) {
         });
     }
 }
+
